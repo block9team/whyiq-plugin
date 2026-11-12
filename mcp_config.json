@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "whyiq": {
+      "serverUrl": "https://www.whyiq.ai/api/mcp"
+    }
+  }
+}

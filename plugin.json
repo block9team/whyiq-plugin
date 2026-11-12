@@ -1,0 +1,19 @@
+{
+  "name": "whyiq",
+  "displayName": "WhyIQ",
+  "version": "1.0.0",
+  "description": "CRO, SEO, AEO, and AI visibility workflows on live WhyIQ data: 50-visitor landing page conversion audits, CTA Pull scoring, on-page AI citability readiness, weekly AI Radar visibility across ChatGPT, Perplexity, Google AI Overviews, Google AI Mode, Gemini, and Claude, and guarded 1-click code fixes.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Run a WhyIQ overview on my site and list the top-ranked CRO and AI Radar fixes",
+    "Inspect my 50-visitor simulation to see why visitors hesitate on our hero and pricing",
+    "Show which competitors beat us on buyer questions in AI Radar this week and stage a fix"
+  ],
+  "author": {
+    "name": "WhyIQ",
+    "url": "https://www.whyiq.ai"
+  },
+  "homepage": "https://www.whyiq.ai/mcp",
+  "repository": "https://github.com/block9team/whyiq-plugin",
+  "disabled": false
+}
