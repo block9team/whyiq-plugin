@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.whyiq.www/whyiq",
+  "title": "WhyIQ CRO & AI Visibility Autopilot",
+  "description": "WhyIQ 50-visitor CRO simulation, on-page AEO readiness, weekly AI visibility, and guarded fixes.",
+  "version": "1.1.1",
+  "websiteUrl": "https://www.whyiq.ai/mcp",
+  "repository": {
+    "url": "https://github.com/block9team/whyiq-plugin",
+    "source": "github",
+    "id": "1457804736"
+  },
+  "icons": [
+    {
+      "src": "https://www.whyiq.ai/android-chrome-512x512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
+      "src": "https://www.whyiq.ai/whyiq-icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.whyiq.ai/api/mcp"
+    }
+  ]
+}
