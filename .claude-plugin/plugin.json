@@ -1,0 +1,12 @@
+{
+  "name": "whyiq",
+  "version": "1.0.0",
+  "description": "CRO, SEO, AEO, and AI visibility workflows on live WhyIQ data: 50-visitor landing page conversion audits, CTA Pull scoring, on-page AI citability readiness, weekly AI Radar visibility across ChatGPT, Perplexity, Google AI Overviews, Google AI Mode, Gemini, and Claude, and guarded 1-click code fixes.",
+  "author": {
+    "name": "WhyIQ",
+    "url": "https://www.whyiq.ai"
+  },
+  "homepage": "https://www.whyiq.ai/mcp",
+  "repository": "https://github.com/block9team/whyiq-plugin",
+  "license": "MIT"
+}
