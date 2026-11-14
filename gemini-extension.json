@@ -1,7 +1,7 @@
 {
   "name": "whyiq",
-  "description": "CRO, SEO, AEO, and AI visibility workflows on live WhyIQ data: 50-visitor landing page conversion audits, CTA Pull scoring, on-page AI citability readiness, weekly AI Radar visibility across ChatGPT, Perplexity, Google AI Overviews, Google AI Mode, Gemini, and Claude, and guarded 1-click code fixes.",
-  "version": "1.1.0",
+  "description": "CRO, SEO, AEO, and AI visibility workflows on live WhyIQ data. Predict landing page Clarity, CTA Pull, and on-page AI readiness with 50 simulated buyer personas. Measure weekly AI Radar visibility across ChatGPT, Perplexity, Google AI Overviews, Google AI Mode, Gemini, and Claude, and apply guarded 1-click code fixes.",
+  "version": "1.1.1",
   "author": {
     "name": "WhyIQ",
     "url": "https://www.whyiq.ai"

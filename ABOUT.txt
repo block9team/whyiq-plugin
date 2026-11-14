@@ -1,0 +1,122 @@
+WhyIQ Plugin for AI Coding Assistants (v1.1.1)
+================================================
+
+What WhyIQ Is
+-------------
+WhyIQ (https://www.whyiq.ai) is a conversion rate optimization (CRO) and AI
+visibility platform built around two separate engines:
+
+1. WhyIQ Page Scanner
+   Simulates 50 realistic buyer personas reviewing a live landing page to
+   predict Clarity, CTA Pull (scored as an integer from 0 to 100), and
+   heuristic on-page AI recommendation readiness, then ranks exact fixes.
+
+2. WhyIQ AI Radar
+   Measures weekly AI visibility (the share of AI answers that name you as
+   Mentioned or link to you as Cited) across ChatGPT, Perplexity, Google AI
+   Overviews, Google AI Mode, Gemini, and Claude.
+
+
+What This GitHub Repository Is
+------------------------------
+This repository (https://github.com/block9team/whyiq-plugin) is the official,
+MIT-licensed public plugin that connects AI coding assistants (including
+Antigravity, Cursor, Claude Code, and Gemini CLI) to your WhyIQ account via
+a remote Model Context Protocol (MCP) server at https://www.whyiq.ai/api/mcp.
+
+It contains only public plugin manifests, agent skills, visual card
+templates, safety rules, and MCP configuration files. All proprietary
+simulation engines, crawler pipelines, and customer account data remain on
+WhyIQ's servers and are accessed only through your OAuth 2.1 session.
+
+
+Why This Plugin Exists
+----------------------
+Finding conversion blockers or missed AI answers in a web dashboard still
+leaves developers copying notes back into a code editor by hand. That manual
+handoff wastes time, introduces guesswork, and risks rewriting sections that
+AI engines already cite.
+
+The WhyIQ plugin brings live scan findings, ranked code fixes, and citation
+preservation rules directly into the editor where you work, while linking back
+to https://www.whyiq.ai whenever you need to launch a new scan, review
+off-site drafts, or manage your workspace.
+
+
+What the Plugin Does
+--------------------
+- Pulls a unified overview of your verified domain, recent Page Scanner scores,
+  and weekly AI Radar visibility into your coding assistant.
+- Explains specific visitor objections from 50-persona runs alongside the CTA
+  Pull and Clarity drivers behind them.
+- Surfaces weekly AI visibility gaps from AI Radar so you can see which buyer
+  questions competitors win.
+- Stages or applies guarded code fixes according to your Switchboard mode
+  and records before/after snapshots for 1-click rollback.
+- Keeps off-site community and review drafts (such as Reddit or review sites)
+  held for human review so nothing is posted automatically.
+
+
+How Safety and Privacy Work
+---------------------------
+1. OAuth 2.1 + PKCE Sign-In
+   When an MCP client connects to https://www.whyiq.ai/api/mcp without a token,
+   WhyIQ responds with HTTP 401 Unauthorized and standard OAuth discovery
+   headers. You authenticate in your browser on whyiq.ai, select the domain
+   and Switchboard preset your assistant may use, and grant scoped access.
+
+2. Honesty Gate ([fill in: ...] Placeholders)
+   The plugin forbids guessing customer counts, case study results, pricing,
+   SLAs, security certifications, or testimonials. When real business facts
+   are missing, your assistant pauses and asks you to supply them first.
+
+3. 4-Mode Switchboard
+   Every fix category follows your chosen mode:
+   - off: Do not surface or touch items in this category.
+   - flag: Report findings as read-only intelligence.
+   - stage: Prepare a diff or preview for explicit approval first.
+   - auto: Apply directly once a ledger snapshot is captured and zero
+     unresolved [fill in: ...] placeholders remain.
+
+4. Ledger Snapshots and Preservation
+   Before editing files, the assistant calls whyiq_prepare_fix_bundle so WhyIQ
+   captures a before snapshot, SHA-256 hash, and keepAnswers list (passages
+   already cited in AI Radar). After edits finish, it records an after snapshot
+   via whyiq_verify_and_record_fix so 1-click rollback stays intact.
+
+5. Measurement vs. Prediction Separation
+   Weekly AI Radar visibility (Mentioned or Cited share across real AI engines)
+   is never conflated with heuristic Page Scanner predictions or 50-persona
+   CTA Pull scores.
+
+
+Included Components
+-------------------
+- Manifests: plugin.json, gemini-extension.json, .claude-plugin/plugin.json
+- MCP Configs: mcp.json, mcp_config.json
+- Guardrails: rules/AGENTS.md
+- Skills:
+  * skills/whyiq-best-practices
+  * skills/whyiq-autopilot
+  * skills/whyiq-ai-radar
+- MCP Tools (on https://www.whyiq.ai/api/mcp):
+  * whyiq_get_site_overview
+  * whyiq_inspect_radar_intelligence
+  * whyiq_inspect_visitor_simulation
+  * whyiq_list_autopilot_fixes
+  * whyiq_prepare_fix_bundle
+  * whyiq_verify_and_record_fix
+  * whyiq_rollback_fix
+  * whyiq_configure_switchboard
+
+
+Links
+-----
+Website:         https://www.whyiq.ai
+Plugin & MCP:    https://www.whyiq.ai/mcp
+Run a Page Scan: https://www.whyiq.ai/analyse
+AI Radar:        https://www.whyiq.ai/radar/app
+Off-Site Fixes:  https://www.whyiq.ai/radar/app/fixes
+Pricing:         https://www.whyiq.ai/pricing
+Source Repo:     https://github.com/block9team/whyiq-plugin
+Agent Spec:      llms.txt

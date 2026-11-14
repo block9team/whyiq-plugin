@@ -1,0 +1,61 @@
+# WhyIQ Plugin
+
+> Official public plugin repository (`v1.1.1`) connecting AI coding assistants to WhyIQ (https://www.whyiq.ai) over remote MCP with OAuth 2.1 + PKCE + Dynamic Client Registration.
+
+## Products and Measurement Boundary
+
+WhyIQ separates measured AI visibility from predicted landing page scores:
+
+- **WhyIQ AI Radar (Measured):** Measures weekly AI visibility (the share of AI answers that name your brand as Mentioned or link to your site as Cited) across ChatGPT, Perplexity, Google AI Overviews, Google AI Mode, Gemini, and Claude. AI Radar scans run weekly, not in real time.
+- **WhyIQ Page Scanner (Predicted):** Simulates 50 buyer personas reviewing a live page to score Clarity and `CTA Pull` (`{value} / 100` integer), and predicts on-page AI recommendation readiness heuristically across 8 signals.
+
+Never conflate measured weekly AI Radar visibility with predicted Page Scanner metrics or `CTA Pull` scores.
+
+## Remote MCP Endpoint and OAuth 2.1
+
+- Remote MCP URL: `https://www.whyiq.ai/api/mcp`
+- Discovery response: Unauthenticated `POST /api/mcp` returns HTTP `401 Unauthorized` with a `WWW-Authenticate` Bearer challenge pointing to `https://www.whyiq.ai/.well-known/oauth-protected-resource`.
+- Authorization Server Metadata: `https://www.whyiq.ai/.well-known/oauth-authorization-server`
+- Dynamic Client Registration (RFC 7591): `https://www.whyiq.ai/api/oauth/register`
+- Browser Consent (PKCE `S256`): `https://www.whyiq.ai/oauth/authorize` and `https://www.whyiq.ai/api/oauth/authorize`
+- Token Exchange and Revocation: `https://www.whyiq.ai/api/oauth/token` and `https://www.whyiq.ai/api/oauth/revoke`
+
+## MCP Tools
+
+1. `whyiq_get_site_overview`: Returns account tier, domain overview, recent Page Scanner summary, and weekly AI Radar snapshot.
+2. `whyiq_inspect_radar_intelligence`: Inspects weekly AI visibility, competitor wins, lost buyer questions, crawler/SSR readiness, and citation targets.
+3. `whyiq_inspect_visitor_simulation`: Inspects 50-persona simulation objections, friction notes, Clarity findings, and `CTA Pull` drivers.
+4. `whyiq_list_autopilot_fixes`: Lists prioritized CRO and AEO fix candidates filtered by the user's 4-Mode Switchboard.
+5. `whyiq_prepare_fix_bundle`: Captures `before_snapshot`, SHA-256 hash, `keepAnswers` (passages cited by AI engines), and placeholder status before editing.
+6. `whyiq_verify_and_record_fix`: Records `after_snapshot` against the `ledger_id` so the Applied Fixes Ledger stays current for 1-click rollback.
+7. `whyiq_rollback_fix`: Restores or marks rolled back a previously recorded Autopilot fix via its `ledger_id`.
+8. `whyiq_configure_switchboard`: Updates category permissions across the 4-Mode Switchboard (`off`, `flag`, `stage`, `auto`).
+
+## Mandatory Guardrails (`rules/AGENTS.md`)
+
+- **Honesty Gate:** Never fabricate customer numbers, metrics, pricing, SLAs, certifications, or testimonials. Ask the user for facts whenever `[fill in: ...]` slots exist and supply them via `resolved_placeholders`.
+- **4-Mode Switchboard:** Strictly follow `off`, `flag`, `stage`, and `auto` modes. Off-site community and review drafts (Reddit, Hacker News, G2, Capterra, Trustpilot) are always held for human review on `https://www.whyiq.ai/radar/app/fixes`.
+- **Ledger Integrity:** Always call `whyiq_prepare_fix_bundle` before modifying files, preserve all `keepAnswers` passages, and close every applied or skipped bundle with `whyiq_verify_and_record_fix`.
+
+## Repository Contents
+
+- `README.md`: Plain-English overview, starter prompts, and IDE setup instructions.
+- `ABOUT.txt`: Unformatted plain ASCII summary of WhyIQ, this plugin, and safety guarantees.
+- `llms.txt`: This AI-readable capability and protocol reference.
+- `plugin.json`, `gemini-extension.json`, `.claude-plugin/plugin.json`: Host plugin manifests.
+- `mcp.json`, `mcp_config.json`: Remote MCP server configurations.
+- `rules/AGENTS.md`: Always-on compliance and safety rules.
+- `skills/whyiq-best-practices/`: Entry router and connection diagnostics.
+- `skills/whyiq-autopilot/`: 50-persona CRO and on-page fix execution skill.
+- `skills/whyiq-ai-radar/`: Weekly AI visibility and citation protection skill.
+- `assets/`: Brand logo and visual template assets.
+
+## Links
+
+- Plugin Setup Portal: https://www.whyiq.ai/mcp
+- Platform Site Overview: https://www.whyiq.ai/llms.txt
+- Run a Page Scan: https://www.whyiq.ai/analyse
+- AI Radar Workspace: https://www.whyiq.ai/radar/app
+- Off-Site Co-Pilot Fixes: https://www.whyiq.ai/radar/app/fixes
+- Plans & Pricing: https://www.whyiq.ai/pricing
+- Source Repository: https://github.com/block9team/whyiq-plugin
