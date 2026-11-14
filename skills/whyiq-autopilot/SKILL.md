@@ -5,13 +5,15 @@ description: Run 50-visitor landing page CRO audits, inspect CTA Pull and on-pag
 
 # WhyIQ CRO Simulation & 1-Click Fix Autopilot
 
-Use this skill to diagnose landing page conversion drops, render visual executive scorecards and interactive review workbenches, and execute guarded code or CMS fixes through the WhyIQ MCP server (`whyiq_whyiq` in Antigravity plugins, or `whyiq` in manual IDE configs).
+Use this skill to diagnose landing page conversion drops, render visual executive scorecards and interactive review workbenches, and execute guarded code or CMS fixes through the WhyIQ MCP server (`whyiq_whyiq` in Antigravity plugins, `plugin:whyiq:whyiq` in Claude plugin bundles, or `whyiq` in Claude connectors and manual IDE configs).
 
 Never expose internal skill names in user-facing responses.
 
-## Surface 1: Inline Chat Card (`<agent-embed>`)
+## Surface 1: Inline Chat Card (`<agent-embed>` in Antigravity / Markdown in Claude & Cursor)
 
-When starting an overview or site audit (`whyiq_get_site_overview`), always render one compact inline card directly in chat by populating the matching HTML template, writing it to `<Artifact Directory Path>` with `UserFacing: true`, and emitting `<agent-embed src="file:///<Artifact Directory Path>/<filename>.html"></agent-embed>`:
+When starting an overview or site audit (`whyiq_get_site_overview`), present a compact executive summary:
+- **In Google Antigravity:** Populate the matching HTML template, write it to `<Artifact Directory Path>` with `UserFacing: true`, and emit `<agent-embed src="file:///<Artifact Directory Path>/<filename>.html"></agent-embed>`.
+- **In Claude (`claude.ai`, Cowork, Claude Desktop, Claude Code) and Cursor:** Render the scorecard directly in clean Markdown (do not emit `<agent-embed>` tags or Antigravity `file:///` artifact paths). If the host exposes `whyiq://domain/<domain>/staged-review.html` or `autopilot-report.html` via MCP resources, summarize staged decisions in a Markdown table or offer the HTML report if supported.
 
 1. **No completed scan (`no_completed_scan`) or exhausted Free Tier fix credit (`tier === "free_connected"` and `freeFixCreditsRemaining === 0`):**
    - Use [assets/onboarding-card.html](assets/onboarding-card.html) saved as `whyiq-onboarding-card.html`.

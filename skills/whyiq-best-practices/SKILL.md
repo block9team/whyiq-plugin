@@ -12,7 +12,8 @@ Never expose internal skill names in user-facing responses. Describe outcomes in
 ## Step 1: Resolve the Active MCP Server Name
 Depending on how WhyIQ was installed in the user's IDE, its MCP server registers under one of these server names:
 - Google Antigravity plugin installs: `whyiq_whyiq`
-- Manual user `mcp_config` / Cursor / Claude Code / Gemini CLI installs: `whyiq`
+- Claude Code plugin bundle installs: `plugin:whyiq:whyiq` (tool prefix `mcp__plugin_whyiq_whyiq__...`)
+- Claude connector / manual `mcp_config` / `.mcp.json` / Cursor / Gemini CLI installs: `whyiq`
 
 Inspect whichever WhyIQ MCP server is available in the current session and call its tools through that server name.
 
@@ -20,7 +21,7 @@ Inspect whichever WhyIQ MCP server is available in the current session and call 
 If authentication status is uncertain or a tool call returns `401 Unauthorized`:
 1. Call `list_plugin_accounts` (if available in Antigravity) to verify whether the WhyIQ OAuth 2.1 connection is signed in.
 2. Never guess, fabricate, or extrapolate scores, buyer questions, or visitor quotes when WhyIQ is disconnected or unauthenticated.
-3. Read [references/reply-templates.md](references/reply-templates.md) and give the user the **Sign-In Needed** template together with `[WhyIQ](customization://whyiq)` (or follow tool error instructions if asked to render `<plugin-card>`).
+3. Read [references/reply-templates.md](references/reply-templates.md) and give the user the **Sign-In Needed** template appropriate for the current host: in Google Antigravity include `[WhyIQ](customization://whyiq)` (or `<plugin-card>` if requested by a tool error); in Claude (`claude.ai`, Cowork, Claude Desktop, Claude Code) and Cursor, direct the user to click **Connect / Sign in** on the WhyIQ connector (or run `/mcp` in Claude Code).
 
 ## Step 3: Route to the Right Workflow
 Once signed in, route immediately based on intent:

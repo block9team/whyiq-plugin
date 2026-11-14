@@ -43,7 +43,7 @@ Never conflate measured weekly AI Radar visibility with predicted Page Scanner m
 - `ABOUT.txt`: Unformatted plain ASCII summary of WhyIQ, this plugin, and safety guarantees.
 - `llms.txt`: This AI-readable capability and protocol reference.
 - `plugin.json`, `gemini-extension.json`, `.claude-plugin/plugin.json`: Host plugin manifests.
-- `mcp.json`, `mcp_config.json`: Remote MCP server configurations.
+- `.mcp.json`, `mcp.json`, `mcp_config.json`: Remote MCP server configurations.
 - `rules/AGENTS.md`: Always-on compliance and safety rules.
 - `skills/whyiq-best-practices/`: Entry router and connection diagnostics.
 - `skills/whyiq-autopilot/`: 50-persona CRO and on-page fix execution skill.
@@ -58,4 +58,5 @@ Never conflate measured weekly AI Radar visibility with predicted Page Scanner m
 - AI Radar Workspace: https://www.whyiq.ai/radar/app
 - Off-Site Co-Pilot Fixes: https://www.whyiq.ai/radar/app/fixes
 - Plans & Pricing: https://www.whyiq.ai/pricing
+- Privacy Policy: https://www.whyiq.ai/privacy
 - Source Repository: https://github.com/block9team/whyiq-plugin

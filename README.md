@@ -64,7 +64,7 @@ Once signed in, try asking your assistant:
   - `whyiq-autopilot`: Page Scanner review, `CTA Pull` and on-page AI readiness diagnostics, 4-Mode Switchboard controls, and guarded fix execution.
   - `whyiq-ai-radar`: Weekly AI visibility checks across supported engines, competitor citation gap analysis, crawler readiness, and preservation checks.
 - **Guardrails (`rules/AGENTS.md`):** Always-on instructions enforcing the Honesty Gate, 4-Mode Switchboard boundaries, ledger recording, and the Bright Line separating measured AI Radar visibility from predicted Page Scanner metrics.
-- **Portable Host Configs & Templates:** Manifests (`plugin.json`, `gemini-extension.json`, `.claude-plugin/plugin.json`, `mcp_config.json`, `mcp.json`) plus interactive HTML report templates in `assets/` and skill references.
+- **Portable Host Configs & Templates:** Manifests (`plugin.json`, `gemini-extension.json`, `.claude-plugin/plugin.json`, `.mcp.json`, `mcp_config.json`, `mcp.json`) plus interactive HTML report templates in `assets/` and skill references.
 
 ## Cross-IDE Setup
 
@@ -72,7 +72,16 @@ Once signed in, try asking your assistant:
 
 Install WhyIQ from the Antigravity Marketplace (or add `https://github.com/block9team/whyiq-plugin`), then complete the OAuth 2.1 Sign-In prompt when invoking any WhyIQ workflow.
 
-### Cursor, Claude Code, and Gemini CLI
+### Claude, Cowork, and Claude Code
+
+- **Claude.ai, Claude Desktop, and Cowork:** Connect via the Claude Directory or go to **Customize > Connectors > Add custom connector** with `https://www.whyiq.ai/api/mcp`.
+- **Claude Code CLI (Plugin Bundle):** Install from the official marketplace with `/plugin install whyiq@claude-plugins-official`, or add the remote MCP server directly with:
+
+```bash
+claude mcp add --transport http whyiq https://www.whyiq.ai/api/mcp
+```
+
+### Cursor and Gemini CLI
 
 Clone this repository or point your client's MCP configuration (`mcp.json` or `mcp_config.json`) to `https://www.whyiq.ai/api/mcp`, then follow your client's OAuth sign-in flow.
 
@@ -87,6 +96,13 @@ For client snippets and setup notes, visit `https://www.whyiq.ai/mcp`.
 
 This public `MIT`-licensed repository contains only open plugin manifests, agent skills, safety rules, and remote MCP configuration. All proprietary crawler pipelines, page simulation engines, and user account records stay on `whyiq.ai` and are accessed strictly through your signed-in OAuth 2.1 session.
 
+## Privacy Policy & Support
+
+- **Privacy Policy:** https://www.whyiq.ai/privacy
+- **Data collection & usage:** Authenticates via OAuth 2.1 + PKCE and accesses only the domains, Page Scanner reports, AI Radar visibility data, and Applied Fixes Ledger snapshots associated with the signed-in user's WhyIQ account. Never reads unrelated conversation history or files outside user-requested audit workflows.
+- **Third-party sharing & retention:** Data is processed on `whyiq.ai` in accordance with the WhyIQ Privacy Policy (`https://www.whyiq.ai/privacy`), never sold to third parties, and OAuth tokens and ledger snapshots can be revoked or erased at any time from `https://www.whyiq.ai/dashboard/autopilot`.
+- **Support & contact:** `hello@whyiq.ai` and https://www.whyiq.ai/contact
+
 ## Links
 
 - Website: https://www.whyiq.ai
@@ -94,3 +110,4 @@ This public `MIT`-licensed repository contains only open plugin manifests, agent
 - Run a Page Scan: https://www.whyiq.ai/analyse
 - AI Radar Workspace: https://www.whyiq.ai/radar/app
 - Plans & Pricing: https://www.whyiq.ai/pricing
+- Privacy Policy: https://www.whyiq.ai/privacy

@@ -5,13 +5,15 @@ description: Measure and improve weekly AI visibility across ChatGPT, Perplexity
 
 # WhyIQ AI Radar & Citation Gap Workflow
 
-Use this skill when the user wants to inspect their weekly **AI visibility** (the share of AI answers that named them as **Mentioned** or linked to them as **Cited**) across the 5 engines and close citation gaps against competitors. Call tools through the active WhyIQ MCP server (`whyiq_whyiq` in Antigravity plugins, or `whyiq` in manual IDE installs).
+Use this skill when the user wants to inspect their weekly **AI visibility** (the share of AI answers that named them as **Mentioned** or linked to them as **Cited**) across the 5 engines and close citation gaps against competitors. Call tools through the active WhyIQ MCP server (`whyiq_whyiq` in Antigravity plugins, `plugin:whyiq:whyiq` in Claude plugin bundles, or `whyiq` in Claude connectors and manual IDE installs).
 
 Never expose internal skill names in user-facing responses.
 
-## Inline Scorecard (`<agent-embed>`)
+## Inline Scorecard (`<agent-embed>` in Antigravity / Markdown in Claude & Cursor)
 
-When reporting AI Radar findings, render [assets/radar-card.html](assets/radar-card.html) filled with live tool metrics into `<Artifact Directory Path>/whyiq-radar-card.html` (`UserFacing: true`) and emit `<agent-embed src="file:///<Artifact Directory Path>/whyiq-radar-card.html"></agent-embed>`.
+When reporting AI Radar findings:
+- **In Google Antigravity:** Render [assets/radar-card.html](assets/radar-card.html) filled with live tool metrics into `<Artifact Directory Path>/whyiq-radar-card.html` (`UserFacing: true`) and emit `<agent-embed src="file:///<Artifact Directory Path>/whyiq-radar-card.html"></agent-embed>`.
+- **In Claude (`claude.ai`, Cowork, Claude Desktop, Claude Code) and Cursor:** Present the scorecard directly in structured Markdown (without `<agent-embed>` tags).
 - Display **Measured Weekly AI Visibility** (`AI visibility %` = Mentioned OR Cited), per-engine visibility bars, and up to 3 buyer questions lost to named competitors.
 - Always link back to `https://www.whyiq.ai/radar/app` so the user can inspect full weekly answer transcripts and manage tracked buyer questions.
 

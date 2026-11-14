@@ -93,7 +93,7 @@ How Safety and Privacy Work
 Included Components
 -------------------
 - Manifests: plugin.json, gemini-extension.json, .claude-plugin/plugin.json
-- MCP Configs: mcp.json, mcp_config.json
+- MCP Configs: .mcp.json, mcp.json, mcp_config.json
 - Guardrails: rules/AGENTS.md
 - Skills:
   * skills/whyiq-best-practices
@@ -118,5 +118,6 @@ Run a Page Scan: https://www.whyiq.ai/analyse
 AI Radar:        https://www.whyiq.ai/radar/app
 Off-Site Fixes:  https://www.whyiq.ai/radar/app/fixes
 Pricing:         https://www.whyiq.ai/pricing
+Privacy Policy:  https://www.whyiq.ai/privacy
 Source Repo:     https://github.com/block9team/whyiq-plugin
 Agent Spec:      llms.txt

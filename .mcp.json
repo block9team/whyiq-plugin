@@ -1,0 +1,6 @@
+{
+  "whyiq": {
+    "type": "http",
+    "url": "https://www.whyiq.ai/api/mcp"
+  }
+}
